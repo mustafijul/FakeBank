@@ -1,19 +1,42 @@
 // console.log("console from deposit");
 document.getElementById("btn-deposit").addEventListener("click", function () {
-//   console.log("deposit button clicked");
-const depositField = document.getElementById("Deposit-id");
-const depositValue = parseInt(depositField.value);
-console.log(depositValue);
+  //   console.log("deposit button clicked");
+  const depositField = document.getElementById("Deposit-id");
+  const depositValue = parseFloat(depositField.value);
+  console.log(depositValue);
 
-const depoTotal = document.getElementById("deposit-total");
-// console.log();
-const previousDepoTotal = parseInt(depoTotal.innerText);
+  const depoTotal = document.getElementById("deposit-total");
+  // console.log();
+  const previousDepoTotal = parseFloat(depoTotal.innerText);
 
-console.log(previousDepoTotal);
-depoTotal.innerText = depositValue + previousDepoTotal;
+  console.log(previousDepoTotal);
+  depoTotal.innerText = depositValue + previousDepoTotal;
+
+  // balance logics
+  const previousBalanceFieldAmount = document.getElementById("balance-total");
+  const previousBalanceAmount = parseFloat(
+    previousBalanceFieldAmount.innerText
+  );
+
+  const previousBalanceInputFieldAmount = document.getElementById("Deposit-id");
+
+  const inputBalanceAmount = parseFloat(previousBalanceInputFieldAmount.value);
+
+  const totalBalanceAmount = previousBalanceAmount + inputBalanceAmount;
+
+  previousBalanceFieldAmount.innerText = parseFloat(totalBalanceAmount);
 });
 
-// withdraw btn
-// document.getElementById("btn-withdraw").addEventListener("click", function () {
-//   console.log("Withdraw button clicked");
-// });
+// withdraw calculation
+document.getElementById("btn-withdraw").addEventListener("click", function () {
+  // console.log("withdraw button clicked");
+  // withdraw increase logic
+  const withdrawInputField = document.getElementById("Withdraw-id");
+  const withdrawInputFieldValue = parseFloat(withdrawInputField.value);
+
+  const withdrawText = document.getElementById("withdraw-total");
+  const withdrawTextValue = parseFloat(withdrawText.innerText);
+
+  const currentTotalWithdraw = withdrawTextValue + withdrawInputFieldValue;
+  withdrawText.innerText = currentTotalWithdraw;
+});
