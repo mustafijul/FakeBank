@@ -39,4 +39,31 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
 
   const currentTotalWithdraw = withdrawTextValue + withdrawInputFieldValue;
   withdrawText.innerText = currentTotalWithdraw;
+
+
+    // Balance after withdraw
+
+    const BalanceAmount = document.getElementById("balance-total");
+    const floatBalanceAmount = parseFloat(BalanceAmount.innerText);
+
+    const withdrawBalanceFieldAmount = document.getElementById('Withdraw-id');
+    const floatWithdrawAmount = parseFloat(withdrawBalanceFieldAmount.value);
+
+    const totalBalanceAfterWithdraw = floatBalanceAmount - floatWithdrawAmount;
+
+
+    BalanceAmount.innerText = totalBalanceAfterWithdraw
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
